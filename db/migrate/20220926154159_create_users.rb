@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :password_digest
       t.integer :age
       t.string :gender
+      t.integer :role_id, foreign_key: true
 
       t.timestamps
     end
