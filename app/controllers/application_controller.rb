@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   
   def not_found
-    render json: { error: 'not_found' }
+    # render json: { error: 'not_found' }
+    render '/not_found'
   end
 
   def authorize_request
@@ -17,10 +18,10 @@ class ApplicationController < ActionController::Base
       render json: { errors: e.message }, status: :unauthorized
     end
   end
-
+  
   private
   
-  def current_user
+def current_user
     User.where(id: session[:user_id]).first
   end
   helper_method :current_user

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'authentication#index'
   
   namespace :admin do
-    get ''
+    get '/users', to: 'admin_controller'
   end
 
   namespace :api do
@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   end
  
   post '/auth/login', to: 'authentication#login'
-  get  '/a*', to: 'application#not_found'
+  get  '*unmatched_route', to: 'application#not_found'
 end

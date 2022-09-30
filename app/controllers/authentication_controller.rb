@@ -2,7 +2,11 @@ class AuthenticationController < ApplicationController
   before_action :authorize_request, except: %i[index login]
 
   def index
-    render '/sign_in'
+    if(current_user)
+      # redirect_to sign_in_path
+    else
+      render '/sign_in'
+    end
   end
 
   # POST /auth/login
@@ -12,7 +16,7 @@ class AuthenticationController < ApplicationController
       token = JsonWebToken.encode(user_id: @user.id)
       time = Time.now + 24.hours.to_i
       render json: { token: token, exp: time.strftime("%m-%d-%Y %H:%M")}, status: :ok
-      session[:user_id] = @ser.id
+      session[:user_id] = @user.id
     else
       render json: { error: 'unauthorized' }, status: :unauthorized
     end
