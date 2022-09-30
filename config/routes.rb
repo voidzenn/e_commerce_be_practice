@@ -3,9 +3,18 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root 'home#index'
+  root 'authentication#index'
   
-  resources :users
+  namespace :admin do
+    get ''
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :users
+    end
+  end
+ 
   post '/auth/login', to: 'authentication#login'
   get  '/a*', to: 'application#not_found'
 end
