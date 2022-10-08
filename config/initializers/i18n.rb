@@ -4,7 +4,7 @@
 # translations in the config/locales directory
 I18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.yml")]
 
-# Locales are supported by our app 
+# Locales are supported by our app
 I18n.available_locales = %i[en es]
 
 # Our default locale

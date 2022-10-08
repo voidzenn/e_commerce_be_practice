@@ -1,16 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary p-4">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-    </ul>
+<div class="h-10 p-4 bg-primary">
+  <div class="d-flex flex-col justify-content-end align-items-end mx-auto gap-4 px-4">
+    <div>
+      <%= link_to "Users", admin_users_path, class: "text-white text-decoration-none fs-4" %>
+    </div>
+    <div>
+      <h5 class="text-end">Users</h5>
+    </div>
+    <div>
+      <h5 class="text-end">Users</h5>
+    </div>
+    <div style="top: 6px; margin-top: 5px;">
+      <%= button_to "Log out", admin_logout_path, method: :delete, class: "btn btn-light h5 text-black" %>
+    </div>
   </div>
-</nav>
+</div>

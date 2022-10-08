@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-center align-items-center p-5 my-20 mx-20 h-75 vh-auto">
+  <div class="card w-100 h-100">
+    <div class="card-body p-5">
+      <div class="card-title">
+        <div class="d-flex flex-col">
+          <div class="w-50">
+            <h3>User Info</h3>
+          </div>
+          <div class="w-50 text-end">
+            <%= link_to "Back to list", admin_users_path, class: "btn btn-secondary" %>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input class="form-control" disabled value="<%= @user.fname + " " + @user.lname %>" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input class="form-control" disabled value="<%= @user.email %>" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Age</label>
+        <input class="form-control" disabled value="<%= @user.age == nil ? "N/A" : @user.age %>" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Gender</label>
+        <input class="form-control" disabled value="<%= @user.gender == nil ? "N/A" : @user.gender %>" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Role</label>
+        <input class="form-control" disabled value="<%= @user.fname + " " + @user.lname %>" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@ class Api::V1::UsersController < ApplicationController
   def show
     render json: @user, status: :ok
   end
+
   # POST /users
   def create
     @user = User.new(user_params)
@@ -34,8 +35,8 @@ class Api::V1::UsersController < ApplicationController
 
   def find_user
     @user = User.find_by(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      render json: { errors: 'User not found' }, status: :not_found
+  rescue ActiveRecord::RecordNotFound
+    render json: { errors: "User not found" }, status: :not_found
   end
 
   def user_params

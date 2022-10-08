@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-role_types = ['admin', 'shopkeeper', 'user']
-role_types.each do |type| 
+role_types = ["admin", "shopkeeper", "user"]
+role_types.each do |type|
   roles = Role.create(
     {
       name: type,
@@ -27,7 +27,7 @@ end
       lname: "Doe",
       email: "admin@admin.com",
       password: "admin123",
-      role_id: 0
+      role_id: 0,
     }
   )
   if user.save

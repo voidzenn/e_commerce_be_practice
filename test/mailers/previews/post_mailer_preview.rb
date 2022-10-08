@@ -5,5 +5,4 @@ class PostMailerPreview < ActionMailer::Preview
   def post_created
     PostMailer.post_created
   end
-
 end

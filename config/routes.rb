@@ -3,18 +3,18 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root 'authentication#index'
-  
+  root "home#index"
+
   namespace :admin do
-    get '/users', to: 'admin_controller'
+    post "/login", to: "authentication#login"
+    delete "/logout", to: "authentication#logout"
+    resources :users
   end
 
   namespace :api do
     namespace :v1 do
+      post "/login", to: "authentication#login"
       resources :users
     end
   end
- 
-  post '/auth/login', to: 'authentication#login'
-  get  '*unmatched_route', to: 'application#not_found'
 end
