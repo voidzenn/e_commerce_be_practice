@@ -18,7 +18,7 @@
         <%= f.text_field :password, class: "form-control mt-2" %>
         <div class="flex justify-content-center align-items-center mx-auto w-full my-2" style="height: 20px;">
           <% if alert %>
-            <p class="text-center"><%= alert %></p>
+            <p class="text-center text-danger"><%= alert %></p>
           <% end %>
         </div>
         <%= f.submit "Sign In", class: "btn btn-primary btn-md w-100 mt-1" %>

@@ -6,7 +6,7 @@ class Admin::AuthenticationController < Admin::BaseController
       cookies[:expiry] = jwt_time
       redirect_to admin_users_path
     else
-      redirect_to root_path, alert: "error in signing in"
+      redirect_to root_path, alert: "Username of Password is incorrect"
     end
   end
 
