@@ -25,8 +25,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_26_154159) do
     t.string "password_digest"
     t.integer "age"
     t.string "gender"
-    t.integer "role_id"
+    t.integer "role_id", default: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 end

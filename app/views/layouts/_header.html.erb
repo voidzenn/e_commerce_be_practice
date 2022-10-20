@@ -1,13 +1,10 @@
 <div class="h-10 p-4 bg-primary">
-  <div class="d-flex flex-col justify-content-end align-items-end mx-auto gap-4 px-4">
+  <div class="d-flex flex-col justify-content-end align-items-center mx-auto gap-4 px-4">
     <div>
-      <%= link_to "Users", admin_users_path, class: "text-white text-decoration-none fs-4" %>
+      <%= link_to "Users", admin_users_path, class: "text-white text-decoration-none fs-5 fw-bold" %>
     </div>
     <div>
-      <h5 class="text-end">Users</h5>
-    </div>
-    <div>
-      <h5 class="text-end">Users</h5>
+      <%= link_to "Roles", admin_users_path, class: "text-white text-decoration-none fw-normal" %>
     </div>
     <div style="top: 6px; margin-top: 5px;">
       <%= button_to "Log out", admin_logout_path, method: :delete, class: "btn btn-light h5 text-black" %>
