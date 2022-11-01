@@ -30,7 +30,7 @@ class Admin::UsersController < Admin::BaseController
       User.update user_params
       redirect_to edit_admin_user_path, { success: "Successfully Updated" }
     rescue
-      render edit_admin_user_path, { error: ["error1", "error2"]  }
+      render edit_admin_user_path, { error: ["error1", "error2"] }
     end
   end
 

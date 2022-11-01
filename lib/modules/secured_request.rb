@@ -1,6 +1,6 @@
 module SecuredRequest
   extend ActiveSupport::Concern
-  
+
   def is_authenticated
     if !cookies[:user_id]
       redirect_to root_path
@@ -15,7 +15,7 @@ module SecuredRequest
     @jwt_decode = JsonWebToken.decode args
   end
 
-  def jwt_token user_id
+  def jwt_token(user_id)
     @jwt_token = JsonWebToken.encode user_id
   end
 

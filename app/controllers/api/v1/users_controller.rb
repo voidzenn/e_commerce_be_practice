@@ -1,6 +1,10 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authorize_request, except: :create
+  before_action :authorize_request, except: %i[create index]
   before_action :find_user, except: %i[create]
+
+  def index
+    render json: { message: "sample data" }
+  end
 
   # GET /users/{username}
   def show

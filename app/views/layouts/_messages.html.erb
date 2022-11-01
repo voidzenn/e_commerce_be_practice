@@ -1,10 +1,10 @@
 <% flash.each do |type, msg| %> 
   <% if msg.kind_of? Array %>
     <% msg.each do |m| %>
-      <div class="alert <%= type == 'success' ? 'alert-success' : 'alert-danger' %>"><%= m %></div>
+      <div class="alert <%= type == "success" ? "alert-success" : "alert-danger" %>"><%= m %></div>
     <% end %>
   <% end %>
   <% if msg.kind_of? String %>
-    <div class="alert <%= type == 'success' ? 'alert-success' : 'alert-danger' %>"><%= msg %></div>
+    <div class="alert <%= type == "success" ? "alert-success" : "alert-danger" %>"><%= msg %></div>
   <% end %>
 <% end %>
