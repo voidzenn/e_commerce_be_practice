@@ -1,6 +1,6 @@
 class Api::V1::AuthenticationController < ApplicationController
-  before_action :authorize_request, except: %i[login register]
-  skip_before_action :verify_authenticity_token, only: :register
+  before_action :authorize_request, except: %i[login   signup]
+  skip_before_action :verify_authenticity_token, only: :signup
 
   def login
     @user = find_email(params[:email])
@@ -11,13 +11,12 @@ class Api::V1::AuthenticationController < ApplicationController
     end
   end
 
-  def register
-    @user = User.create register_params
-    # render json: {message: @users}
-    if @user.save
-      render json: { message: "success" }
+  def signup
+    @user = User.create signup_params
+    if @user.save && validate_signup?
+      render json: { message: "Successfully Signed up", status: "success" }
     else
-      render json: { message: @user.errors.full_messages }
+      render json: { message: "Failed to Signup", error: @user.errors, status: "failed" }
     end
   end
 
@@ -27,7 +26,12 @@ class Api::V1::AuthenticationController < ApplicationController
     params.permit(:email, :password)
   end
 
-  def register_params
-    params.permit(:fname, :lname, :email, :password, :age, :gender, :address, :email, :password)
+  def validate_signup?
+    # Dont accept 1 or admin value
+    signup_params[:role_id].to_i > 1
+  end
+
+  def signup_params
+    params.permit(:role_id, :fname, :lname, :password, :email, :age, :gender, :address)
   end
 end
