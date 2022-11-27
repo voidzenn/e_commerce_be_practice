@@ -27,7 +27,7 @@ module SecuredRequest
     @jwt_time_formatted = jwt_time.strftime("%m-%d-%Y %H:%M")
   end
 
-  def find_email(email)
+  def findvalidate_signin_email(email)
     @find_email = User.find_by_email email
   end
 end
