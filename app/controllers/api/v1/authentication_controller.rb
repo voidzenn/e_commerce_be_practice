@@ -5,7 +5,7 @@ class Api::V1::AuthenticationController < Api::V1::BaseController
   def signin
     @user = validate_signin(sigin_params[:email])
     if @user&.authenticate(sigin_params[:password]) && is_user_admin(@user.role_id)
-      render json: { token: jwt_encode( user_id: @user.id ), exp: jwt_time, status: "success" }
+      render json: { auth: { token: jwt_encode(user_id: @user.id), exp: jwt_time }, user: { user_id: @user.id, user_type: @user.role_id }, status: "success" }
     else
       render json: { error: "Email or Password is incorrect", status: "failed" }
     end
@@ -26,11 +26,11 @@ class Api::V1::AuthenticationController < Api::V1::BaseController
     params.permit(:email, :password)
   end
 
-  def validate_signin email
+  def validate_signin(email)
     @validate_signin = User.find_by_email email
   end
 
-  def is_user_admin role_id
+  def is_user_admin(role_id)
     # Dont accept 1 or admin value
     role_id.to_i > 1
   end
