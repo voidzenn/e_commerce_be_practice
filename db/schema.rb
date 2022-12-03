@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_01_101543) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_150715) do
+  create_table "items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "category"
+    t.integer "number_of_items"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -30,4 +40,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_101543) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 end

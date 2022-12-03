@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       post "/signin", to: "authentication#signin"
       post "/signup", to: "authentication#signup"
       resources :users
+      resources :items
+      resources :orders
     end
   end
 end

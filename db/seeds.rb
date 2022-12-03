@@ -19,10 +19,12 @@
 #       lname: "Doe",
 #       email: "admin@admin.com",
 #       password: "admin123",
+#       address: "PH",
 #       role_id: 1,
 #     }
 #   )
-#   if user.save
+#   if
+#     user.save
 #     puts "Successfully created user Admin"
 #   else
 #     puts "Error in seeding"
@@ -38,6 +40,7 @@
 #       lname: "~",
 #       email: "user@user#{new_val}.com",
 #       password: "admin123",
+#       address: "PH",
 #       role_id: 3,
 #     }
 #   )
