@@ -16,7 +16,7 @@ class User < ApplicationRecord
   attr_accessor :skip_email_validation
   attr_accessor :skip_password_validation
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   private
 
