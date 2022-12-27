@@ -1,6 +1,6 @@
 class Admin::AuthenticationController < Admin::BaseController
   def login
-    @user = find_email params[:email]
+    @user = findvalidate_signin_email params[:email]
     if @user&.authenticate(params[:password])
       cookies[:user_id] = jwt_encode user_id: @user.id
       cookies[:expiry] = jwt_time
