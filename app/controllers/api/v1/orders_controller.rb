@@ -7,9 +7,9 @@ class Api::V1::OrdersController < Api::V1::BaseController
   def create
     @order = Order.create order_params
     if @order.save
-      render json: { message: 'success' }
+      render json: { message: "success" }
     else
-      render json: { message: 'failed' }
+      render json: { message: "failed" }
     end
   end
 
@@ -18,5 +18,4 @@ class Api::V1::OrdersController < Api::V1::BaseController
   def order_params
     params.permit(:user_id, :item_id)
   end
-
 end

@@ -3,7 +3,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token, only: %i[index create]
 
   def index
-    render json: { data: Item.all }
+    render json: Item.all, serialize: UserSerializer
   end
 
   def create

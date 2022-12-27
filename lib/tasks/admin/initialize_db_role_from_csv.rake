@@ -1,8 +1,7 @@
 namespace :admin do
-  desc "Update db role table with data in the role csv"
+  desc "Create db role table with data in the role csv"
   task initialize_db_role_from_csv: :environment do
-    puts "Updating roles table"
-
-    puts "Updated the roles db"
+    puts "Creating roles data"
+    Admin::GenerateRoleFromCSV.new.perform
   end
 end
