@@ -1,6 +1,6 @@
 require "csv"
 
-class Admin::GenerateRoleFromCSV
+class Admin::GenerateRoleFromCsv
   def perform
     remove_all_roles
     create_roles
